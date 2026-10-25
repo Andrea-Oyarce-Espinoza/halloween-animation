@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Halloween Magic</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <main class="scene">
+        <h1>Halloween Magic 🎃</h1>
+        <p>Click the pumpkin for a spooky surprise!</p>
+
+        <div class="moon"></div>
+
+        <div class="bat bat-one">🦇</div>
+        <div class="bat bat-two">🦇</div>
+
+        <div class="ghost">
+            <div class="eye left"></div>
+            <div class="eye right"></div>
+            <div class="mouth"></div>
+        </div>
+
+        <button class="pumpkin" id="pumpkin"
+                aria-label="Surprise pumpkin">
+            <span class="stem"></span>
+            <span class="pumpkin-eye left"></span>
+            <span class="pumpkin-eye right"></span>
+            <span class="pumpkin-mouth"></span>
+        </button>
+
+        <div class="ground"></div>
+        <div id="surprise" aria-live="polite"></div>
+    </main>
+</body>
+</html>
