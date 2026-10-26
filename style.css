@@ -142,16 +142,153 @@ p {
     filter: drop-shadow(0 0 8px #ffcc00);
 }
 
+/* ==== CSS ANIMATED BATS ==== */
+
 .bat {
     position: absolute;
-    font-size: 45px;
-    animation: fly 7s linear infinite;
+    width: 100px;
+    height: 65px;
+    z-index: 4;
+    pointer-events: none;
+    animation: fly 9s linear infinite;
 }
 
-.bat-one { top: 24%; }
+.bat-one {
+    top: 22%;
+}
+
 .bat-two {
-    top: 38%;
+    top: 35%;
     animation-delay: -4s;
+}
+
+.bat-body {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.bat-head {
+    position: absolute;
+    top: 20px; 
+    left: 40px; 
+    width: 22px; 
+    height: 27px; 
+    border-radius: 45%; 
+    background: #090612; 
+    z-index: 3; 
+    display: flex; 
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+}
+
+/* Pointed ears */
+.bat-head::before,
+.bat-head::after {
+    content: "";
+    position: absolute;
+    top: -10px;
+    width: 11px;
+    height: 16px;
+    background: #090612;
+    clip-path: polygon(50% 0, 0 100%, 100% 100%);
+}
+
+.bat-head::before {
+    left: 0;
+}
+
+.bat-head::after {
+    right: 0;
+}
+
+.bat-eye {
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: #ffb347;
+    box-shadow: 0 0 5px #ffb347;
+    z-index: 4;
+}
+
+/* Wings */
+.bat-wing {
+    position: absolute;
+    top: 16px;
+    width: 43px;
+    height: 36px;
+    background: #090612;
+    transform-origin: center right;
+}
+
+.wing-left {
+    left: 1px; 
+    clip-path: polygon(
+        100% 35%, 
+        70% 10%, 
+        0 0,
+        15% 40%,
+        30% 85%, 
+        55% 65%, 
+        80% 100%
+    );
+    animation: flap-left 0.45s ease-in-out infinite alternate;
+}
+
+.wing-right {
+    right: 0;
+    transform-origin: center left;
+    clip-path: polygon(
+        0 35%,
+        30% 10%, 
+        100% 0,
+        85% 40%,
+        70% 85%,
+        45% 65%, 
+        20% 100%
+    );
+    animation: flap-right 0.45s ease-in-out infinite alternate;
+}
+
+/* Wing movement */
+@keyframes flap-left {
+    from {
+        transform: rotate(0deg) scaleY(1);
+    }
+    to {
+        transform: rotate(12deg) scaleY(0.45);
+    }
+}
+
+@keyframes flap-right {
+    from {
+        transform: rotate(0deg) scaleY(1);
+    }
+    to {
+        transform: rotate(-12deg) scaleY(0.45);
+    }
+}
+
+/* Different bat sizes */
+.bat-two .bat-body {
+    transform: scale(0.7);
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+    .bat,
+    .bat-wing {
+        animation: none;
+    }
+
+    .bat-one {
+        left: 15%;
+    }
+    
+    .bat-two {
+        left: 65%;
+    }
 }
 
 .ground {
