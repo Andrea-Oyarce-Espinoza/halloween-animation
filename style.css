@@ -190,3 +190,445 @@ p {
         animation: none;
     }
 }
+
+/* ==== FLYING WITCH ==== */
+
+.witch-flight {
+    position: absolute;
+    z-index: 3;
+    top: 30%;
+    left: 0;
+    width: 150px;
+    height: 150px;
+    pointer-events: none;
+    animation: witch-fly 12s linear infinite;
+}
+
+.witch {
+    position: relative;
+    width: 150px;
+    height: 150px; 
+    animation: witch-hover 2s ease-in-out infinite;
+}
+
+/* Pointed hat */
+.witch-hat {
+    position: absolute;
+    top: 5px;
+    left: 50px; 
+    width: 85px; 
+    height: 65px; 
+    z-index: 4;
+}
+
+.hat-buckle {
+    position: absolute; 
+    bottom: 12px; 
+    left: 34px; 
+    width: 13px; 
+    height: 12px; 
+    border: 3px solid #ffbf47; 
+    z-index: 2;
+}
+
+/* Hat */
+.witch-hair {
+    position: absolute;
+    top: 57px;
+    left: 58px; 
+    width: 52px;
+    height: 58px;
+    border-radius: 40%;
+    background: #f07828;
+    transform: rotate(15deg);
+    z-index: 1;
+}
+
+/* Face */
+.witch-face {
+    position: absolute;
+    top: 58px; 
+    left: 79px; 
+    width: 38px; 
+    height: 42px; 
+    border-radius: 45%; 
+    background: #e8aa85;
+    z-index: 3;
+}
+
+.witch-eye {
+    position: absolute; 
+    top: 15px; 
+    right: 8px; 
+    width: 5px; 
+    height: 7px; 
+    background: #23132f; 
+    border-radius: 50%; 
+}
+
+
+/* Straw bristles */
+.broom-bristles {
+    position: absolute; 
+    top: -14px; 
+    left: -10px; 
+    width: 46px; 
+    height: 37px; 
+    background: #e8a643; 
+    clip-path: polygon(
+        0 0, 100% 35%,
+        100% 65%, 0 100%,
+        15% 50%
+    );
+}
+
+/* Flight across the screen */
+@keyframes witch-fly {
+    from {
+        transform: translateX(-200px);
+    }
+    to {
+        transform: translateX(calc(100vw + 200px));
+    }
+}
+
+/* Gentle floating */
+@keyframes witch-hover {
+    0%, 100% {
+        transform: translateY(0) rotate(-3deg);
+    }
+    50% {
+        transform: translateY(-18px) rotate(3deg);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .witch-flight,
+    .witch {
+        animation: none;
+    }
+
+    .witch-flight {
+        left: 30%;
+    }
+}
+
+.haunted-house {
+    position: absolute;
+    bottom: 12%; 
+    right: 15%; 
+    width: 190px; 
+    height: 230px; 
+    z-index: 1; 
+    filter: drop-shadow(0 0 18px #080415);
+}
+
+.house-roof {
+    position: absolute; 
+    top: 0; 
+    left: -15px; 
+    width: 220px; 
+    height: 100px; 
+    background: #211332; 
+    clip-path: polygon(50% 0, 100% 100%, 0 100%);
+    z-index: 2;
+}
+
+.house-body {
+    position: absolute; 
+    bottom: 0;
+    width: 190px; 
+    height: 155px; 
+    background: #302044; 
+    border: 4px solid #160e25;
+}
+
+.house-window {
+    position: absolute; 
+    top: 25px; 
+    width: 35px; 
+    height: 50px; 
+    border: 5px solid #160e25; 
+    border-radius: 50% 50% 0 0;
+    background: #ffb347;
+    box-shadow: 0 0 22px #ff9c28;
+    animation: window-flicker 4s infinite;
+}
+
+.window-left { left: 25px; }
+.window-right { right: 25px; }
+
+.house-door {
+    position: absolute;
+    bottom: 0;
+    left: 72px; 
+    width: 45px; 
+    height: 70px; 
+    background: #120b1e; 
+    border-radius: 22px 22px 0 0;
+}
+
+.house-door::after {
+    content: "";
+    position: absolute;
+    right: 8px; 
+    top: 38px; 
+    width: 6px; 
+    height: 6px;
+    border-radius: 50%;
+    background: #ffc35a;
+}
+
+@keyframes window-flicker {
+    0%, 90%, 100% {
+        opacity: 1; 
+    }
+    92%, 96% {
+        opacity: 0.4;
+    }
+    94% {
+        opacity: 0.8;
+    }
+}
+
+/* ==== SPOOKY TREES ==== */
+
+.tree {
+    position: absolute; 
+    bottom: 10%; 
+    width: 160px; 
+    height: 280px; 
+    z-index: 2;
+}
+
+.tree-left {
+    left: 3%;
+}
+
+.tree-right {
+    right: 1%;
+    transform: scaleX(-1) scale(0.85);
+}
+
+.tree-trunk {
+    position: absolute;
+    bottom: 0;
+    left: 70px;
+    width: 30px;
+    height: 190px;
+    background: #0b0715;
+    transform: rotate(-8deg);
+    border-radius: 50% 50% 0 0;
+}
+
+.branch {
+    position: absolute;
+    height: 16px;
+    background: #0b0715;
+    border-radius: 50%;
+    transform-origin: left center;
+}
+
+.branch-one {
+    width: 110px;
+    left: 75px;
+    top: 100px;
+    transform: rotate(-40deg);
+}
+
+.branch-two {
+    width: 100px; 
+    left: 75px; 
+    top: 140px; 
+    transform: rotate(-145deg);
+}
+
+.branch-three {
+    width: 90px; 
+    left: 75px;
+    top: 75px;
+    transform: rotate(-85deg);
+}
+
+/* ==== GRAVEYARD ==== */
+
+.graveyard {
+    position: absolute;
+    bottom: 10%;
+    left: 0;
+    width: 100%; 
+    height: 130px;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.grave {
+    position: absolute; 
+    bottom: 0;
+    width: 50px; 
+    height: 75px; 
+    background: #171025;
+    border: 3px solid #0b0715;
+    border-radius: 25px 25px 3px 3px;
+}
+
+.grave::after {
+    content: "RIP";
+    position: absolute; 
+    top: 24px; 
+    left: 9px; 
+    font-size: 13px; 
+    color: #625775;
+}
+
+.grave-one {
+    left: 12%; 
+    transform: rotate(-12deg);
+}
+
+.grave-two {
+    left: 35%; 
+    transform: rotate(8deg) scale(0.8);
+}
+
+.grave-three {
+    right: 30%;
+    transform: rotate(-6deg);
+}
+
+.grave-four {
+    right: 8%;
+    transform: rotate(14deg) scale(0.75);
+}
+
+/* ==== TWINKLING STARS ==== */
+
+.stars {
+    position: absolute; 
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.star {
+    position: absolute; 
+    border-radius: 50%; 
+    background: #fff4d4;
+    box-shadow: 0 0 6px #ffe8a0;
+    animation: twinkle 3s ease-in-out infinite;
+}
+
+@keyframes twinkle {
+    0%, 100% {
+        opacity: 0.2;
+        transform: scale(0.7);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.4);
+    }
+}
+
+/* Layering and interaction */
+.moon {
+    z-index: 1;
+}
+
+.ghost {
+    z-index: 4;
+}
+
+.bat {
+    z-index: 4;
+}
+
+.pumpkin {
+    z-index: 6;
+}
+
+.ground {
+    z-index: 3;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .star,
+    .house-window {
+        animation: none;
+    }
+}
+
+/* ==== WITCH REPAIRS ==== */
+
+/* Pointed witch hat */
+.hat-tip {
+    position: absolute;
+    width: 75px; 
+    height: 65px; 
+    background: #26103f;
+    clip-path: polygon(65% 0, 5% 100%, 100% 100%);
+}
+
+.hat-brim {
+    position: absolute;
+    bottom: 0;
+    left: -12px; 
+    width: 100px;
+    height: 13px;
+    border-radius: 50%;
+    background: #26103f;
+}
+
+/* Small nose */
+.witch-nose {
+    position: absolute;
+    top: 23px; 
+    right: -5px; 
+    width: 12px; 
+    height: 9px; 
+    background: #d99273;
+    border-radius: 50%;
+}
+
+/* Purple witch dress */
+.witch-body {
+    position: absolute; 
+    top: 94px; 
+    left: 62px; 
+    width: 65px; 
+    height: 45px; 
+    background: #6c35a0;
+    clip-path: polygon(
+        35% 0,
+        65% 0,
+        100% 100%,
+        0 100%
+    );
+    transform: rotate(-15deg);
+    z-index: 2;
+}
+
+/* Witch arm */
+.witch-arm {
+    position: absolute; 
+    top: 104px; 
+    left: 105px; 
+    width: 38px; 
+    height: 9px; 
+    border-radius: 10px; 
+    background: #e8aa85;
+    transform: rotate(20deg);
+    z-index: 4;
+}
+
+/* Broomstick */
+.witch-broom {
+    position: absolute; 
+    top: 127px; 
+    left: 5px; 
+    width: 150px; 
+    height: 7px; 
+    border-radius: 5px; 
+    background: #8d5a32;
+    transform: rotate(-8deg);
+    z-index: 3;
+}
