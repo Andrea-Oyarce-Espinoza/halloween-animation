@@ -769,3 +769,292 @@ p {
     transform: rotate(-8deg);
     z-index: 3;
 }
+
+/* =====================================
+   PHASE 4.2 — RESPONSIVE DESIGN
+===================================== */
+
+/* General improvements */
+
+.scene {
+    min-height: 500px; 
+    min-height: 100svh;
+    height: 100vh;
+    height: 100svh;
+    isolation: isolate;
+}
+
+h1 {
+    font-size: clamp(1.5rem, 4vw, 2.8rem);
+    padding: 0 15px;
+}
+
+.scene > p {
+    font-size: clamp(0.8rem, 2vw, 1rem);
+    padding: 0 15px;
+}
+
+.pumpkin {
+    touch-action: manipulation;
+}
+
+/* =====================================
+   TABLETS — 768px to 1023px
+===================================== */
+
+@media (min-width: 768px) and (max-width: 1023px) {
+
+    .moon {
+        width: 155px; 
+        height: 155px;
+        right: 10%; 
+        top: 18%;
+    }
+
+    .haunted-house {
+        transform: scale(0.8);
+        transform-origin: bottom right;
+        right: 9%;
+    }
+
+    .tree-left {
+        left: -3%;
+        transform: scale(0.85);
+        transform-origin: bottom left;
+    }
+
+    .tree-right {
+        right: -3%;
+        transform: scaleX(-1) scale(0.75);
+        transform-origin: bottom right;
+    }
+
+    .pumpkin {
+        width: 145px;
+        height: 115px;
+    }
+
+    .ghost {
+        left: 15%; 
+        top: 38%; 
+        transform-origin: center;
+    }
+
+    .grave-two {
+        left: 30%;
+    }
+}
+
+/* =====================================
+   MOBILE — Below 768px
+===================================== */
+
+@media (max-width: 767px) {
+    
+    .scene {
+        min-height: 560px;
+    }
+
+    h1 {
+        margin-top: 25px;
+        font-size: 1.7rem;
+    }
+
+    .scene > p {
+        max-width: 280px;
+        margin: 10px auto;
+        line-height: 1.4;
+    }
+
+    /* Moon */
+    .moon {
+        width: 120px;
+        height: 120px;
+        top: 20%;
+        right: 5%;
+        box-shadow: 0 0 35px #ffb34766;
+    }
+
+    /* Ghost */
+    .ghost {
+        top: 42%;
+        left: 9%;
+        width: 80px;
+        height: 105px;
+        border-radius: 45px 45px 15px 15px;
+    }
+
+    .ghost .eye {
+        top: 35px;
+        width: 9px;
+        height: 14px;
+    }
+
+    .ghost .eye.left {
+        left: 20px;
+    }
+
+    .ghost .eye.right {
+        right: 20px;
+    }
+
+    .ghost .mouth {
+        top: 65px;
+        left: 34px;
+        width: 13px;
+        height: 17px;
+    }
+
+    /* Pumpkin: scale entire drawing 
+       to keep face proportions */
+    .pumpkin {
+        bottom: 11%; 
+        left: 50%; 
+        scale: 0.75; 
+        transform-origin: bottom center;
+    }
+
+    /* Haunted house */
+    .haunted-house {
+        right: 3%;
+        bottom: 12%; 
+        transform: scale(0.55);
+        transform-origin: bottom right;
+    }
+
+    /* Trees */
+    .tree-left {
+        left: -35px; 
+        bottom: 10%; 
+        transform: scale(0.65);
+        transform-origin: bottom left; 
+    }
+
+    .tree-right {
+        right: -40px;
+        bottom: 10%; 
+        transform: scaleX(-1) scale(0.6);
+        transform-origin: bottom right;
+    }
+
+    /* Graveyard */
+    .graveyard {
+        bottom: 10%; 
+    }
+
+    .grave {
+        scale: 0.7; 
+        transform-origin: bottom center;
+    }
+
+    .grave-one {
+        left: 15%;
+    }
+
+    .grave-two {
+        left: 28%;
+    }
+
+    .grave-three {
+        right: 22%;
+    }
+
+    .grave-four {
+        right: 5%;
+    }
+
+    /* Flying witch */
+    .witch-flight {
+        top: 28%;
+    }
+
+    .witch {
+        scale: 0.65;
+        transform-origin: top left;
+    }
+
+    /* Bats */
+    .bat-one {
+        top: 27%;
+    }
+
+    .bat-two {
+        top: 38%;
+    }
+
+    .bat-two .bat-body {
+        transform: scale(0.55);
+    }
+
+    /* Surprise message */
+    #surprise {
+        top: 65%;
+        font-size: 1.2rem;
+        width: 90%;
+    }
+}
+
+/* =====================================
+   SMALL PHONES — Below 390px
+===================================== */
+
+@media (max-width: 389px) {
+
+    h1 {
+        font-size: 1.4rem;
+    }
+
+    .moon {
+        width: 95px;
+        height: 95px;
+        right: 3%;
+    }
+
+    .haunted-house {
+        transform: scale(0.45);
+    }
+
+    .tree-right {
+        transform: scaleX(-1) scale(0.5);
+    }
+
+    .pumpkin {
+        scale: 0.65;
+    }
+
+    .witch {
+        scale: 0.55;
+    }
+}
+
+/* =====================================
+   SHORT LANDSCAPE SCREENS
+===================================== */
+
+@media (max-height: 550px) and (orientation: landscape) {
+
+    .scene {
+        min-height: 400px;
+    }
+
+    h1 {
+        margin-top: 12px;
+        font-size: 1.5rem;
+    }
+
+    .scene > p {
+        margin: 5px auto;
+    }
+
+    .moon {
+        top: 12%;
+    }
+
+    .ghost {
+        top: 32%;
+    }
+
+    .witch-flight {
+        top: 25%;
+    }
+}
